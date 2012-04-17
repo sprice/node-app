@@ -13,19 +13,15 @@ app_url=`config-get app_url`
 app_branch=`config-get app_branch`
 app_port=`config-get app_port`
 
+apt-get -y install -qq git-core
+
 install_node() {
   juju-log "Installing node..."
-  apt-get -y install -qq nodejs nodejs-dev build-essential
+  add-apt-repository ppa:chris-lea/node.js
+  apt-get update
+  apt-get -y install -qq nodejs nodejs-dev build-essential npm curl
 }
 [[ -x /usr/bin/node ]] || install_node
-
-install_npm() {
-  juju-log "Installing npm..."
-  apt-get -y install -qq git-core
-  git clone https://github.com/isaacs/npm /tmp/npm -b 0.2
-  cd /tmp/npm && node cli.js install
-}
-[[ -x /usr/bin/npm ]] || install_npm
 
 install_app() {
   juju-log "Installing ${app_name}..."
