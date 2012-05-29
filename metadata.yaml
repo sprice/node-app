@@ -1,6 +1,7 @@
 name: node-app
 summary: "Deploy a node.js application"
 description: "Deploy a user-defined node.js application"
+maintainer: Mark Mims <mark.mims@canonical.com>
 requires:
   mongodb:
     interface: mongodb
