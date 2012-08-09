@@ -13,7 +13,7 @@ options:
     description: Repository type (git/bzr/...)
   app_url:
     type: string
-    default: "http://github.com/mmm/testnode.git"
+    default: "https://github.com/sprice/node-hello.git"
     description: Application repository URL
   app_branch:
     type: string
